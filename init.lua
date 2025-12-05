@@ -4,6 +4,7 @@
 -- morning, habamax, slate,
 -- vim.cmd("colorscheme slate")
 
+require("config.util") 
 require("config.keymaps")
 require("config.autocmds")
 require("config.options")

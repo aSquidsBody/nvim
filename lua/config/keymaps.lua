@@ -4,8 +4,6 @@ vim.g.mapleader=" "
 vim.keymap.set("v", "<Leader>y", '"+y')
 vim.keymap.set({"n", "v" }, "<Leader>Y", '"+Y')
 
-print(vim.inspect(vim.api.nvim_list_bufs()))
-print(vim.lua_omnifunc(0))
 
 -- diagnostics
 local virtual_text_level = 0
@@ -57,8 +55,8 @@ vim.keymap.set("n", "<Leader>f", "gg=G")
 vim.keymap.set("v", "<Leader>f", "=")
 
 -- new window
-vim.keymap.set("n", "<C-n>", "<C-w>s")
-vim.keymap.set("n", "<C-m>", "<C-w>v")
+vim.keymap.set("n", "<Leader>pn", "<C-w>s")
+vim.keymap.set("n", "<Leader>pm", "<C-w>v")
 
 -- undo tree
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")

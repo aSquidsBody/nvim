@@ -1,0 +1,24 @@
+return {
+  "mason-org/mason-lspconfig.nvim",
+  dependencies = {
+    { "mason-org/mason.nvim", opts = {} },
+    "neovim/nvim-lspconfig",
+  },
+  opts = {
+    automatic_enable = true,
+    ensure_installed = { 
+      "lua_ls", 
+      "gopls", 
+      "jdtls",
+    },
+
+    servers = {
+      jdtls = {},
+    },
+    setup = {
+      jdtls = function() 
+        return true -- avoid duplicate servers
+      end,
+    }
+  }
+}
