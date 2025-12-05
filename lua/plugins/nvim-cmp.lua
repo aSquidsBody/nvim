@@ -51,12 +51,11 @@ return {
         })
       })
 
-      
       -- Set up lspconfig.
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 
-      local lsps = { "gopls", "python-lsp-server", "lua-language-server" }
+      local lsps = { "gopls", "python-lsp-server", "lua-language-server", "jdtls" }
       for _, lsp in ipairs(lsps) do
         vim.lsp.config(lsp, {
           capabilities = capabilities

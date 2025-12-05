@@ -7,7 +7,6 @@ vim.keymap.set({"n", "v" }, "<Leader>Y", '"+Y')
 
 -- diagnostics
 local virtual_text_level = 0
-vim.keymap.set("n", "<Leader>d", ":lua vim.diagnostic.open_float(0, {scope='line'})<CR>", { noremap=true, nowait = true })
 vim.keymap.set('n', '<Leader>dd', function()
 
   if virtual_text_level == 0 then
