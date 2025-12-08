@@ -18,6 +18,24 @@ vim.api.nvim_create_user_command('Upper',
     end,
 })
 
+-- wrap text
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  desc = "Set text wrap for certain file types",
+  pattern = { "*.md", "*.txt" },
+  callback = function()
+    vim.opt.wrap = true
+    vim.opt.linebreak = true
+  end
+})
+
+vim.api.nvim_create_autocmd({ "BufLeave" }, {
+  desc = "Set text wrap for certain file types",
+  pattern = { "*.md", "*.txt" },
+  callback = function()
+    vim.opt.wrap = false
+  end
+})
+
 -- Highlight yanked text
 vim.api.nvim_create_autocmd({"TextYankPost"}, {
   desc = "Briefly highlight yanked text",

@@ -10,6 +10,8 @@ return {
       "lua_ls", 
       "gopls", 
       "jdtls",
+      "clangd",
+      "stylua"
     },
 
     servers = {

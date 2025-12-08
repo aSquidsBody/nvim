@@ -4,6 +4,9 @@ vim.g.mapleader=" "
 vim.keymap.set("v", "<Leader>y", '"+y')
 vim.keymap.set({"n", "v" }, "<Leader>Y", '"+Y')
 
+-- terminal
+vim.keymap.set({ "n", "v"} , "<Leader>t", "<CMD>ToggleTerm<CR>", { desc = "Opens up a terminal" })
+vim.keymap.set("t" , "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exits terminal mode" })
 
 -- diagnostics
 local virtual_text_level = 0
@@ -41,6 +44,11 @@ end, {desc = "Toggle virtual text"})
 
 -- remove matches when clearing search
 vim.keymap.set("n", "<ESC>", ":noh<CR>", { noremap = true, silent = true })
+
+
+-- window resize
+vim.keymap.set('n', '<C-=>', '8<C-w>+', { noremap = true, silent = true}) 
+vim.keymap.set('n', '<C-->', '8<C-w>-', { noremap = true, silent = true})
 
 -- navigation
 vim.keymap.set("n", "<Leader>pv", ":Ex<CR>")
