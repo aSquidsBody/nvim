@@ -9,6 +9,12 @@ return {
       automatic_installation = true,
       ensure_installed = {
         "cpplint",
+      },
+      ignore_install = {
+        "janet",
+        "inko",
+        "clj-kondo",
+        "ruby"
       }
     }
   }

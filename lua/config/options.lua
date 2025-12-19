@@ -7,6 +7,7 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.relativenumber = true
+vim.opt.number = true
 vim.opt.ruler = true
 vim.opt.title = true
 vim.opt.termguicolors = true
