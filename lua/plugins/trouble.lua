@@ -1,3 +1,5 @@
+local virtual_text_level = 0
+
 -- trouble is for fancy diagnostics --
 return {
   "folke/trouble.nvim",
@@ -16,9 +18,9 @@ return {
       "<cmd>Trouble diagnostics toggle<cr>",
       desc = "Diagnostics (Trouble)",
     },
-  {
+    {
       "<leader>xX",
-     "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+      "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
       desc = "Buffer Diagnostics (Trouble)",
     },
     {
@@ -40,6 +42,40 @@ return {
       "<leader>xQ",
       "<cmd>Trouble qflist toggle<cr>",
       desc = "Quickfix List (Trouble)",
-    },
+    }, {
+      "<Leader>dd",
+      function()
+        if virtual_text_level == 0 then
+          print("Diagnostic level: ERROR")
+          vim.diagnostic.config({
+            virtual_text = {
+              severity = { min = vim.diagnostic.severity.ERROR }
+            }
+          })
+        elseif virtual_text_level == 1 then
+          print("Diagnostic level: WARN")
+          vim.diagnostic.config({
+            virtual_text = {
+              severity = { min = vim.diagnostic.severity.WARN }
+            }
+          })
+        elseif virtual_text_level == 2 then
+          print("Diagnostic level: INFO")
+          vim.diagnostic.config({
+            virtual_text = {
+              severity = { min = vim.diagnostic.severity.INFO }
+            }
+          })
+        elseif virtual_text_level == 3 then
+          print("Diagnostic level: NONE")
+          vim.diagnostic.config({
+            virtual_text = false
+          })
+        end
+        virtual_text_level = (virtual_text_level + 1) % 4
+      end,
+      desc = "Toggle diagnostic level",
+      mode = "n"
+    }
   },
 }
