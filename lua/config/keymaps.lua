@@ -7,11 +7,6 @@ vim.keymap.set({"n", "v" }, "<Leader>Y", '"+Y')
 -- remove matches when clearing search
 vim.keymap.set("n", "<ESC>", ":noh<CR>", { noremap = true, silent = true })
 
-
--- window resize
-vim.keymap.set('n', '<C-=>', '8<C-w>+', { noremap = true, silent = true})
-vim.keymap.set('n', '<C-->', '8<C-w>-', { noremap = true, silent = true})
-
 -- navigation
 vim.keymap.set("n", "<Leader>pv", ":Ex<CR>")
 vim.keymap.set("n", "<C-h>", "<C-w>h")
@@ -27,3 +22,6 @@ vim.keymap.set("v", "<Leader>f", "=")
 vim.keymap.set("n", "<Leader>pn", "<C-w>s")
 vim.keymap.set("n", "<Leader>pm", "<C-w>v")
 
+-- window resize
+vim.keymap.set('n', '<C-=>', function() vim.cmd("resize +8") end, { noremap = false, silent = true})
+vim.keymap.set('n', '<C-_>', function() vim.cmd("resize -8") end, { noremap = true, silent = true})

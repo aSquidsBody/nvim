@@ -16,7 +16,7 @@ vim.opt.wrap = false
 
 -- persistent undo
 vim.opt.undofile = true
-vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undo"
+vim.opt.undodir = os.getenv("HOME") .. "/.undo"
 
 -- diagnostics
 -- Overwrite open_floating_preview
