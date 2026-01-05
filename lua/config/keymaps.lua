@@ -4,51 +4,8 @@ vim.g.mapleader=" "
 vim.keymap.set("v", "<Leader>y", '"+y')
 vim.keymap.set({"n", "v" }, "<Leader>Y", '"+Y')
 
--- terminal
-vim.keymap.set({ "n", "v"} , "<Leader>t", "<CMD>ToggleTerm<CR>", { desc = "Opens up a terminal" })
-vim.keymap.set("t" , "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exits terminal mode" })
-
--- diagnostics
-local virtual_text_level = 0
-vim.keymap.set('n', '<Leader>dd', function()
-
-  if virtual_text_level == 0 then
-    print("Diagnostic level: ERROR")
-    vim.diagnostic.config({
-      virtual_text = {
-        severity = { min = vim.diagnostic.severity.ERROR }
-      }
-    })
-  elseif virtual_text_level == 1 then
-    print("Diagnostic level: WARN")
-    vim.diagnostic.config({
-      virtual_text = {
-        severity = { min = vim.diagnostic.severity.WARN }
-      }
-    })
-  elseif virtual_text_level == 2 then
-    print("Diagnostic level: INFO")
-    vim.diagnostic.config({
-      virtual_text = {
-        severity = { min = vim.diagnostic.severity.INFO }
-      }
-    })
-  elseif virtual_text_level == 3 then
-    print("Diagnostic level: NONE")
-    vim.diagnostic.config({
-      virtual_text = false
-    })
-  end
-  virtual_text_level = (virtual_text_level + 1) % 4
-end, {desc = "Toggle virtual text"})
-
 -- remove matches when clearing search
 vim.keymap.set("n", "<ESC>", ":noh<CR>", { noremap = true, silent = true })
-
-
--- window resize
-vim.keymap.set('n', '<C-=>', '8<C-w>+', { noremap = true, silent = true}) 
-vim.keymap.set('n', '<C-->', '8<C-w>-', { noremap = true, silent = true})
 
 -- navigation
 vim.keymap.set("n", "<Leader>pv", ":Ex<CR>")
@@ -65,7 +22,6 @@ vim.keymap.set("v", "<Leader>f", "=")
 vim.keymap.set("n", "<Leader>pn", "<C-w>s")
 vim.keymap.set("n", "<Leader>pm", "<C-w>v")
 
--- undo tree
-vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
-
-
+-- window resize
+vim.keymap.set('n', '<C-=>', function() vim.cmd("resize +8") end, { noremap = false, silent = true})
+vim.keymap.set('n', '<C-_>', function() vim.cmd("resize -8") end, { noremap = true, silent = true})
