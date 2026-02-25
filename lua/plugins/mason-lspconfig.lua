@@ -17,21 +17,21 @@ return {
   },
   opts = {
     automatic_enable = true,
-    ensure_installed = { 
-      "lua_ls", 
-      "gopls", 
+    ensure_installed = {
+      "lua_ls",
+      "gopls",
       "jdtls",
       "clangd",
-      "stylua"
+      "stylua",
     },
 
     servers = {
       jdtls = {},
     },
     setup = {
-      jdtls = function() 
+      jdtls = function()
         return true -- avoid duplicate servers
       end,
-    }
-  }
+    },
+  },
 }
