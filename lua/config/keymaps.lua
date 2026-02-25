@@ -24,4 +24,4 @@ vim.keymap.set("n", "<Leader>pm", "<C-w>v")
 
 -- window resize
 vim.keymap.set('n', '<C-=>', function() vim.cmd("resize +8") end, { noremap = false, silent = true})
-vim.keymap.set('n', '<C-_>', function() vim.cmd("resize -8") end, { noremap = true, silent = true})
+vim.keymap.set('n', '<C-->', function() vim.cmd("resize -8") end, { noremap = true, silent = true})
