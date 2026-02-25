@@ -28,6 +28,14 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   end
 })
 
+vim.api.nvim_create_autocmd({ "BufEnter"}, {
+  desc = "Disable treessiter for dockerfile",
+  pattern = "Dockerfile",
+  callback = function()
+    vim.cmd("TSDisable highlight")
+  end
+})
+
 vim.api.nvim_create_autocmd({ "BufLeave" }, {
   desc = "Set text wrap for certain file types",
   pattern = { "*.md", "*.txt" },
