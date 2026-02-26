@@ -13,29 +13,16 @@ return {
       desc = "Find files",
     },
     {
-      "<Leader>pn",
+      "<Leader>df",
       function()
         local builtin = require("telescope.builtin")
-        builtin.find_files({
-          cwd = vim.fn.stdpath("config"),
-          border = true,
-          borderchars = {
-            preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-            prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
-            results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
-          },
-          layout_config = {
-            preview_cutoff = 1,
-          },
-          layout_strategy = "center",
-          previewer = false,
-          results_title = false,
-          sorting_strategy = "ascending",
-          theme = "dropdown",
-        })
+        local opts = require("telescope.themes").get_dropdown({ previewer = false })
+        opts.cwd = vim.fn.stdpath("config")
+        opts.prompt_title = "Dataproc API - Find Files"
+        builtin.find_files(opts)
       end,
       mode = { "n" },
-      desc = "Find files in nvim directory",
+      desc = "Find files in Dataproc API"
     },
     {
       "<Leader>nf",
