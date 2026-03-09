@@ -1,3 +1,3 @@
 return {
-	"LazyVim/LazyVim",
+-- 	"LazyVim/LazyVim",
 }

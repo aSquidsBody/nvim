@@ -14,6 +14,7 @@ vim.opt.termguicolors = true
 vim.opt.hlsearch = true
 vim.opt.wrap = false
 
+
 -- persistent undo
 vim.opt.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/.undo"
