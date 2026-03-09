@@ -4,7 +4,7 @@ return {
 	lazy = false,
 	build = ":TSUpdate",
   opts = {
-    ensure_installed = { "go", "lua", "java", "json" },
+    ensure_installed = { "go", "lua", "java", "json", "dockerfile" },
     highlight = {
       enable = true
     },
@@ -12,7 +12,7 @@ return {
       enable = true
     }
   },
-  config = function(_, opts) 
+  config = function(_, opts)
     require("nvim-treesitter.configs").setup(opts)
   end
 }
