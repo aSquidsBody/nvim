@@ -13,7 +13,7 @@ return {
       desc = "Find files",
     },
     {
-      "<Leader>pn",
+      "<Leader>nf",
       function()
         local builtin = require("telescope.builtin")
         builtin.find_files({
