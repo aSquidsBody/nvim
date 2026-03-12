@@ -43,6 +43,7 @@ return {
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
+          { name = "luasnip" },
           { name = 'vsnip' }, -- For vsnip users.
           -- { name = 'luasnip' }, -- For luasnip users.
           -- { name = 'ultisnips' }, -- For ultisnips users.
@@ -62,6 +63,7 @@ return {
           capabilities = capabilities
         })
         vim.lsp.enable(lsp)
+        
       end
 
       return opts
