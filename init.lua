@@ -4,12 +4,10 @@
 -- morning, habamax, slate,
 -- vim.cmd("colorscheme slate")
 
-require("config.util")
 require("config.keymaps")
 require("config.autocmds")
 require("config.options")
 require("config.lazy")
-
 
 vim.g.loaded_gzip = 0
 vim.g.gzip_exec = 1
