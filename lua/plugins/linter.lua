@@ -14,7 +14,7 @@ return {
         "janet",
         "inko",
         "clj-kondo",
-        "ruby"
+        "ruby",
       }
     }
   }

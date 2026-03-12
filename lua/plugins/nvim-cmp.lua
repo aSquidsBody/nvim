@@ -18,15 +18,6 @@ return {
           -- REQUIRED - you must specify a snippet engine
           expand = function(args)
             require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-            -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-            -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-            -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
-
-            -- For `mini.snippets` users:
-            -- local insert = MiniSnippets.config.expand.insert or MiniSnippets.default_insert
-            -- insert({ body = args.body }) -- Insert at cursor
-            -- cmp.resubscribe({ "TextChangedI", "TextChangedP" })
-            -- require("cmp.config").set_onetime({ sources = {} })
           end,
         },
         window = {
@@ -43,26 +34,14 @@ return {
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
-          { name = 'vsnip' }, -- For vsnip users.
-          -- { name = 'luasnip' }, -- For luasnip users.
+          -- { name ='nvim_lua' },
+          -- { name = 'vsnip' }, -- For vsnip users.
+          { name = 'luasnip' }, -- For luasnip users.
           -- { name = 'ultisnips' }, -- For ultisnips users.
           -- { name = 'snippy' }, -- For snippy users.
-        }, {
           { name = 'buffer' },
         })
       })
-
-      -- Set up lspconfig.
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-
-      local lsps = { "gopls", "python-lsp-server", "lua-language-server", "jdtls" }
-      for _, lsp in ipairs(lsps) do
-        vim.lsp.config(lsp, {
-          capabilities = capabilities
-        })
-        vim.lsp.enable(lsp)
-      end
 
       return opts
 
